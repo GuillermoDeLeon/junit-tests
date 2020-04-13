@@ -42,4 +42,39 @@ public class CohortTest {
         assertEquals(95.0, cohortWithMany.getCohortAverage(), 0);
     }
 
+
+    @Test
+    public void testAddStudent() {
+        int initialSize = cohortWithMany.getStudents().size();
+        Student smith = new Student(1, "Alias Smith");
+        smith.addGrade(90);
+        smith.addGrade(80);
+        cohortWithMany.addStudent(smith);
+        assertEquals(initialSize+1, cohortWithMany.getStudents().size());
+    }
+
+    @Test
+    public void testGetStudents() {
+        Student smith = new Student(1, "Alias Smith");
+        smith.addGrade(90);
+        smith.addGrade(80);
+        cohortWithMany.addStudent(smith);
+        List<Student> students = cohortWithMany.getStudents();
+        assertEquals(3, students.size());
+        assertEquals("Fer M", students.get(0).getName());
+        assertEquals("Trant B", students.get(1).getName());
+        assertEquals("Alias Smith", students.get(2.).getName());
+    }
+
+    @Test
+    public void testGetCohortAverage() {
+        Student smith = new Student(1, "Alias Smith");
+        smith.addGrade(90);
+        smith.addGrade(80);
+        smith.addGrade(70);
+        cohortWithMany.addStudent(smith);
+        assertEquals(80, cohortWithMany.getCohortAverage(), 0.000001);
+    }
+
 }
+
