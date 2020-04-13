@@ -31,6 +31,7 @@ public class Student {
         }
 
         return total / grades.size();
+
     }
 }
 
